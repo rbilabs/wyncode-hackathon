@@ -1,0 +1,4 @@
+[submodule "xbanegas/rbi-frogger"]
+	path = xbanegas/rbi-frogger
+	url = https://github.com/xbanegas/rbi-frogger
+	branch = master
