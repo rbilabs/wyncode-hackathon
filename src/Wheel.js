@@ -9,6 +9,7 @@ let padding = {top:20, right:40, bottom:0, left:0},
             picked = 100000,
             oldpick = [];
             // color = d3.scale.category20();
+            
         let data = [
                     {"label":"Popeyes",  "value":1,  "question":"--"}, 
                     {"label":"--",  "value":2,  "question":"---"}, 
