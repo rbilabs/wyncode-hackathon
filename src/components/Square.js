@@ -14,7 +14,7 @@ export default class Square extends Component {
         <img
           className={`timbit ${this.props.isActive ? 'active' : ''}`}
           src={timbit}
-          alt=""
+          alt="Timbit"
         />
         <div className="tim-hole" />
       </div>

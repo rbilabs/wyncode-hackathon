@@ -3,7 +3,7 @@ import '../scss/index.scss';
 import Square from './Square';
 import Score from './Score';
 
-const createMoles = (amount, range) => {
+const createTimbits = (amount, range) => {
   let set = new Set();
   while (set.size < amount) {
     set.add(Math.floor(Math.random() * range));
@@ -22,7 +22,7 @@ class Game extends Component {
     super(props);
     this.state = {
       score: 0,
-      activeMoles: []
+      activeTimbits: []
     };
   }
 
@@ -48,11 +48,14 @@ class Game extends Component {
       return null;
     }
     this.timer = setInterval(() => {
-      const randomMoleAmount = Math.floor(
+      const randomTimbitAmount = Math.floor(
         Math.random() * (this.props.boardSize / 2)
       );
-      const activeMoles = createMoles(randomMoleAmount, this.props.boardSize);
-      this.setState({ activeMoles });
+      const activeTimbits = createTimbits(
+        randomTimbitAmount,
+        this.props.boardSize
+      );
+      this.setState({ activeTimbits });
     }, this.props.timbitSpeed);
     this.stopGame();
   };
@@ -66,7 +69,7 @@ class Game extends Component {
       if (score > this.maxScore) {
         this.maxScore = score;
       }
-      this.setState({ score: 0, activeMoles: [] });
+      this.setState({ score: 0, activeTimbits: [] });
     }, this.props.duration);
   };
 
@@ -79,7 +82,7 @@ class Game extends Component {
   };
 
   render() {
-    const { activeMoles, score } = this.state;
+    const { activeTimbits, score } = this.state;
     return (
       <div className="game">
         <img
@@ -96,7 +99,7 @@ class Game extends Component {
         </div>
         <div className="board">
           {this.boardSize.map((cell, i) => {
-            const isActive = activeMoles.includes(i);
+            const isActive = activeTimbits.includes(i);
             return (
               <Square
                 onClick={this.handleClick}
