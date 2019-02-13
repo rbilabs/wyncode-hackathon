@@ -74,10 +74,11 @@ class Game extends Component {
   };
 
   /* update score */
-  handleClick = () => {
+  handleClick = id => {
     this.setState(prevState => {
+      const activeTimbits = prevState.activeTimbits.filter(v => v !== id);
       const score = prevState.score + 1;
-      return { score };
+      return { score, activeTimbits };
     });
   };
 

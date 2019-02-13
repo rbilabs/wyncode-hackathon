@@ -4,7 +4,7 @@ import './scss/index.scss';
 import Game from './components/Game';
 
 ReactDOM.render(
-  <Game boardSize={25} duration={9000} timbitSpeed={900} />,
+  <Game boardSize={25} duration={20000} timbitSpeed={3000} />,
   document.getElementById('root')
 );
 

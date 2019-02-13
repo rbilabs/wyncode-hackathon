@@ -62,24 +62,23 @@ body {
   .timbit {
     height: 80%;
     transform: translateY(70px);
+    transition: all 150ms ease-in;
     &.active {
-      animation-name: active;
-      animation-timing-function: ease-in;
-      animation-duration: 1s;
+      transform: translateY(0px);
     }
   }
 
-  @keyframes active {
-    0% {
-      transform: translateY(70px);
-    }
-    50% {
-      transform: translateY(0px);
-    }
-    100% {
-      transform: translateY(70px);
-    }
-  }
+  // @keyframes active {
+  //   0% {
+  //     transform: translateY(70px);
+  //   }
+  //   50% {
+  //     transform: translateY(0px);
+  //   }
+  //   100% {
+  //     transform: translateY(70px);
+  //   }
+  // }
 
   .tim-hole {
     height: 1em;
