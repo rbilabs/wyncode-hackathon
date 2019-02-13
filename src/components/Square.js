@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import timbit from './timbit.png';
+import timbit from '../images/timbit.png';
 
 export default class Square extends Component {
   handleClick = () => {

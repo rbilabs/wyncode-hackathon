@@ -1,12 +1,7 @@
 body {
   background: linear-gradient(#fff 0%, #fff 15%, #ffee00 100%);
-  cursor: url('./tim-cursor.png'), auto;
-  // font-family: 'Major Mono Display', monospace;
-  // font-family: 'Major Mono Display', monospace;
-  // font-family: 'IBM Plex Sans', sans-serif;
-  // font-family: 'IBM Plex Sans Condensed', sans-serif;
+  cursor: url('../images/tim-cursor.png'), auto;
   font-family: 'IBM Plex Serif', serif;
-  // font-family: 'IBM Plex Mono', monospace;
 }
 .board {
   background: #ffeaea;
@@ -39,9 +34,7 @@ body {
   text-align: center;
   font-family: 'Major Mono Display', monospace;
   button {
-    // height: 3em;
-    // width: 5em;
-    cursor: url('./tim-cursor.png'), auto;
+    cursor: url('../images/tim-cursor.png'), auto;
     padding: 0.2em;
     font-size: 2em;
     margin: 0.5em;
@@ -72,7 +65,7 @@ body {
     &.active {
       animation-name: active;
       animation-timing-function: ease-in;
-      animation-duration: 0.7s;
+      animation-duration: 1s;
     }
   }
 

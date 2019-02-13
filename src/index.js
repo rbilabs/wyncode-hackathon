@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
-import Game from './Game';
+import './scss/index.scss';
+import Game from './components/Game';
 
 ReactDOM.render(
-  <Game boardSize={25} duration={30000} timbitSpeed={900} />,
+  <Game boardSize={25} duration={9000} timbitSpeed={900} />,
   document.getElementById('root')
 );
 

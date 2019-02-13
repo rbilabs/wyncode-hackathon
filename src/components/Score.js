@@ -8,7 +8,7 @@ export default class Score extends Component {
       <div className="score">
         <div>score: {score}</div>
         <button
-          onClick={isClickable ? this.props.onClick : ''}
+          onClick={isClickable ? this.props.onClick : null}
           disabled={!isClickable}
         >
           {message}

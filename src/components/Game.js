@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './index.scss';
+import '../scss/index.scss';
 import Square from './Square';
 import Score from './Score';
 
