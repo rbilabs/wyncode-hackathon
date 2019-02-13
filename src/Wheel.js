@@ -94,10 +94,10 @@ let padding = {top:20, right:40, bottom:0, left:0},
                         .text(data[picked].question);
                     oldrotation = rotation;
               
-                    /* Get the result value from object "data" */
+                    
                     console.log(data[picked].value)
               
-                    /* Comment the below line for restrict spin to sngle time */
+                    /* Comment the below line for restrict spin to single time */
                     container.on("click", spin);
                 });
         }
