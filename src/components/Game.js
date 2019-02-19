@@ -51,17 +51,6 @@ class Game extends Component {
     handleClick(i) {
         const classes = this.state.classes.slice();
         const bags = this.state.bags.slice();
-        // switch(classes[i]){
-        //     case "down":
-        //       classes[i] = 'up';
-        //     break;
-        //     case "up":
-        //         imgg = burger;
-        //     break;
-        //     case "burger-up-down":
-        //         imgg = burger;
-        //     break;
-        // }
         let score = null;
         let currentMatch = this.state.match.slice();
         if(currentMatch[0]!=null){
@@ -82,7 +71,6 @@ class Game extends Component {
                 score = "You Lose!"
                 classes[i] = 'up-down';
                 classes[this.state.prev] = 'down';
-                alert(this.state.prev);
                 this.setState({classes: classes, score: score});
             }
 
