@@ -7,11 +7,14 @@ import fries from '../fries.jpg';
 
 function Bag(props) {
     let imgg;
-    switch(props.move){
+    switch(props.type){
         case "burger":
             imgg = burger;
         break;
         case "burger-up":
+            imgg = burger;
+        break;
+        case "burger-up-down":
             imgg = burger;
         break;
         case "logo":
@@ -31,7 +34,7 @@ function Bag(props) {
             
     return (
        <div className='bk-bag'>
-        <img src={imgg} className={props.move} />
+        <img src={imgg} className={props.type+" "+props.move} />
         <img src={bag} className='bag' onClick={props.onClick} />
        </div>
     );

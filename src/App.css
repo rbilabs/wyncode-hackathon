@@ -21,6 +21,16 @@
   bottom: 0px;
   margin: 0 auto;
 }
+.down {
+  width: 150px;
+  z-index: 0;
+  position: absolute;
+  bottom: 10px;
+  transition:all 0.4s;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+}
 .burger {
   width: 150px;
   z-index: 0;
@@ -31,7 +41,7 @@
   left: 0;
   margin: 0 auto;
 }
-.burger-up{
+.up{
   width: 170px;
   z-index: 0;
   position: absolute;
@@ -41,6 +51,26 @@
   margin: 0 auto;
   bottom: 110px;
 }
+.up-down{
+  width: 170px;
+  z-index: 0;
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  bottom: 110px;
+  animation-name: down;
+  animation-duration: 4s;
+}
+
+@keyframes down {
+  0%   {left:0px; top:0px;}
+  25%  {left:200px; top:0px;}
+  50%  {left:200px; top:200px;}
+  75%  {left:0px; top:200px;}
+  100% {left:0px; top:0px;}
+}
+
 .fries {
   width: 150px;
   z-index: 0;
