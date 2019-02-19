@@ -36,7 +36,7 @@ class Game extends Component {
             arr[currentIndex] = arr[randomIndex];
             arr[randomIndex] = temporaryValue;
         }
-        this.setState({bags: arr, match:  Array(2).fill(null), score: "Find the Match!"});
+        this.setState({bags: arr, classes: ['down','down','down','down','down','down'], match:  Array(2).fill(null), score: "Find the Match!",  prev: null,});
      }
     renderBag(i) {
         return (
