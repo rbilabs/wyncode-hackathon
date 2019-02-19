@@ -11,22 +11,10 @@ function Bag(props) {
         case "burger":
             imgg = burger;
         break;
-        case "burger-up":
-            imgg = burger;
-        break;
-        case "burger-up-down":
-            imgg = burger;
-        break;
         case "logo":
             imgg = logo;
         break;
-        case "logo-up":
-            imgg = logo;
-        break;
         case "fries":
-            imgg = fries;
-        break;
-        case "fries-up":
             imgg = fries;
         break;
         
@@ -34,7 +22,7 @@ function Bag(props) {
             
     return (
        <div className='bk-bag'>
-        <img src={imgg} className={props.type+" "+props.move} />
+        <img src={imgg} className={props.move} />
         <img src={bag} className='bag' onClick={props.onClick} />
        </div>
     );

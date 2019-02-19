@@ -21,7 +21,7 @@ class Game extends Component {
           classes: ['down','down','down','down','down','down'],
           match: Array(2).fill(null),
           prev: null,
-          score: "Find the Matchhh!"
+          score: "Find the Match!"
         };
        
     }
