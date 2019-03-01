@@ -1,7 +1,8 @@
 body {
-  background: linear-gradient(#fff 0%, #fff 15%, #ffee00 100%);
+  background: #ece45ac2;
   cursor: url('../images/tim-cursor.png'), auto;
   font-family: 'IBM Plex Serif', serif;
+  margin: 0;
 }
 .board {
   background: #ffeaea;
@@ -29,7 +30,20 @@ body {
 
 .max-score {
   text-align: center;
+  .score {
+    width: unset;
+  }
 }
+
+.welcome-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
 .score {
   text-align: center;
   font-family: 'Major Mono Display', monospace;
@@ -37,18 +51,21 @@ body {
     cursor: url('../images/tim-cursor.png'), auto;
     padding: 0.2em;
     font-size: 2em;
-    margin: 0.5em;
     color: #ae262e;
     background: #e8d7aa;
     border-radius: 5px;
     font-family: 'Major Mono Display', monospace;
   }
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90vw;
+  margin: auto;
 }
 
 .logo {
   height: 10em;
   display: block;
-  margin: auto;
 }
 
 .square {

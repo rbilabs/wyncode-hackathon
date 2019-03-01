@@ -2,10 +2,17 @@ import React, { Component } from 'react';
 
 export default class Score extends Component {
   render() {
-    const { score, gameState, message, maxScore } = this.props;
+    const {
+      score,
+      gameState,
+      message,
+      maxScore,
+      remainingSeconds
+    } = this.props;
     const isClickable = gameState === 'start' || gameState === 'over';
     return (
       <div className="score">
+        <div>time: {remainingSeconds}</div>
         <div>score: {score}</div>
         <button
           onClick={isClickable ? this.props.onClick : null}

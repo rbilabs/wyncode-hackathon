@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import '../scss/index.scss';
+import React, { Component, Fragment } from 'react';
 import Square from './Square';
 import Score from './Score';
 
@@ -22,7 +21,8 @@ class Game extends Component {
     super(props);
     this.state = {
       score: 0,
-      activeTimbits: []
+      activeTimbits: [],
+      remainingSeconds: this.props.duration
     };
   }
 
@@ -33,9 +33,14 @@ class Game extends Component {
       .keys()
   ];
   gameState = 'start';
-  maxScore = 0;
 
-  /* clear any interval */
+  componentDidMount() {
+    if (this.props.autoPlay) {
+      this.startGame();
+    }
+  }
+
+  /* clear interval */
   componentWillUnmount() {
     clearInterval(this.timer);
   }
@@ -48,29 +53,28 @@ class Game extends Component {
       return null;
     }
     this.timer = setInterval(() => {
-      const randomTimbitAmount = Math.floor(
-        Math.random() * (this.props.boardSize / 2)
-      );
-      const activeTimbits = createTimbits(
-        randomTimbitAmount,
-        this.props.boardSize
-      );
-      this.setState({ activeTimbits });
+      this.setState(prevState => {
+        const randomTimbitAmount = Math.floor(
+          Math.random() * (this.props.boardSize / 2)
+        );
+        const activeTimbits = createTimbits(
+          randomTimbitAmount,
+          this.props.boardSize
+        );
+        /* decrease seconds and check for game over */
+        const remainingSeconds = prevState.remainingSeconds - 1;
+        if (remainingSeconds === 0) {
+          this.timer = clearInterval(this.timer);
+          this.gameState = 'over';
+          const { score } = this.state;
+          if (score > this.props.maxScore) {
+            this.props.setMaxScore(score);
+          }
+          return { score: 0, activeTimbits: [], remainingSeconds: 0 };
+        }
+        return { activeTimbits, remainingSeconds };
+      });
     }, this.props.timbitSpeed);
-    this.stopGame();
-  };
-
-  /* wait whatever amount of time the duration prop is before finishing and clear intervals */
-  stopGame = () => {
-    setTimeout(() => {
-      this.timer = clearInterval(this.timer);
-      this.gameState = 'over';
-      const { score } = this.state;
-      if (score > this.maxScore) {
-        this.maxScore = score;
-      }
-      this.setState({ score: 0, activeTimbits: [] });
-    }, this.props.duration);
   };
 
   /* update score */
@@ -83,21 +87,10 @@ class Game extends Component {
   };
 
   render() {
-    const { activeTimbits, score } = this.state;
+    const { activeTimbits, score, remainingSeconds } = this.state;
+    const { maxScore, resetGame } = this.props;
     return (
-      <div className="game">
-        <img
-          className="logo"
-          src="https://www.timhortons.com/us/images/Tim_Hortons_Script.jpg"
-          alt=""
-        />
-        <div className="max-score">
-          <h2 className="title">Timbit-Dunker</h2>
-          <div className="title-copy">
-            Welcome to the timbit dunker! the goal? Dunk as many timbits in your
-            coffe before the time runs out. Scroll down and click Start to begin
-          </div>
-        </div>
+      <Fragment>
         <div className="board">
           {this.boardSize.map((cell, i) => {
             const isActive = activeTimbits.includes(i);
@@ -113,12 +106,13 @@ class Game extends Component {
         </div>
         <Score
           score={score}
+          remainingSeconds={remainingSeconds}
           gameState={this.gameState}
           message={gameMessages[this.gameState]}
-          maxScore={this.maxScore}
-          onClick={this.startGame}
+          maxScore={maxScore}
+          onClick={resetGame}
         />
-      </div>
+      </Fragment>
     );
   }
 }
