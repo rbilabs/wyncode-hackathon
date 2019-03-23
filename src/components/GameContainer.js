@@ -50,8 +50,8 @@ export default class GameContainer extends Component {
             key={gameId}
             autoPlay={gameId > 1}
             boardSize={25}
-            duration={10}
-            timbitSpeed={1000}
+            duration={15}
+            timbitSpeed={1500}
             maxScore={maxScore}
             setMaxScore={this.setMaxScore}
             resetGame={this.incrementGameId}

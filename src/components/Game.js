@@ -27,12 +27,8 @@ class Game extends Component {
   }
 
   /* instance properties */
-  boardSize = [
-    ...Array(this.props.boardSize)
-      .fill(this.props.boardSize)
-      .keys()
-  ];
-  gameState = 'start';
+  boardSize = [...Array(this.props.boardSize).keys()];
+  gameState = 'playing';
 
   componentDidMount() {
     if (this.props.autoPlay) {
